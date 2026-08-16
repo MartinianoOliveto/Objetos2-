@@ -77,7 +77,7 @@ class EmpleadoTemporal inherits Empleado{
         return sueldoBasico + self.totalHorasExtras()
     }
     override method retenciones(){
-        self.obraSocial() + self.aportes()
+        return self.obraSocial() + self.aportes()
     }
     override method obraSocial(){
         return self.sueldoBruto() * 0.1 + self.retencionPorEdad() 

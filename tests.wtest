@@ -1,0 +1,33 @@
+import empresa.*
+const casado = new Casado()
+describe "Testeando sueldo de empleado temporal"{
+    const martin = new EmpleadoTemporal(nombre = "Martin Gomez", direccion = "Calle Falsa 123",
+                    estadoCivil = casado, fechaNacimiento = 1980, sueldoBasico = 1000, 
+                    fechaDesignacion = "", horasExtra =10)
+    test"Edad de Martin"{
+        assert.equals(46, martin.edad())
+    }
+    test"Sueldo bruto de Martin, que deberia ser 1400 patacones"{
+        assert.equals(1400,martin.sueldoBruto())
+    }
+    test"retenciones de obra social a Martin, que deberian ser 140 patacones"{
+        assert.equals(140,martin.obraSocial())
+    }
+    test"retenciones de aportes a Martin, que deberian ser 190 patacones"{
+        assert.equals(190, martin.aportes())
+    }
+    test"Retenciones a Martin, que deberian ser de 330 patacones"{
+        assert.equals(330, martin.retenciones())
+    }
+    test"Sueldo neto de Martin, que deberia ser de 1070 patacones"{
+        assert.equals(1070, martin.sueldoNeto())
+    }
+}
+describe"Testeando calculo de sueldo de empleado permanente"{
+    const laura = new EmpleadoPermanente(nombre = "Laura Benitez", direccion = "Av.Mitre 450",
+                    estadoCivil = casado, fechaNacimiento = 1970, sueldoBasico = 3000, 
+                    cantDeHijos = 2, antiguedad = 5)
+    test"Edad de Laura"{
+        assert.equals()
+    }
+}
