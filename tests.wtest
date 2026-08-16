@@ -28,6 +28,22 @@ describe"Testeando calculo de sueldo de empleado permanente"{
                     estadoCivil = casado, fechaNacimiento = 1970, sueldoBasico = 3000, 
                     cantDeHijos = 2, antiguedad = 5)
     test"Edad de Laura"{
-        assert.equals()
+        assert.equals(56, laura.edad())
     }
+    test"Salario familiar de Laura, que deberia ser de 650 patacones"{
+        assert.equals(650, laura.salarioFamiliar())
+    }
+    test"Salario bruto de Laura, que deberia ser de 3650 patacones"{
+        assert.equals(3650, laura.sueldoBruto())
+    }
+    test"Retenciones por obra social a Laura, que deberian ser de 405 patacones"{
+        assert.equals(405, laura.obraSocial())
+    }
+    test"Retenciones por aportes a Laura, que deberian ser de 547,50 patacones"{
+        assert.equals(547.50, laura.aportes())
+    }
+    test "Salario neto de Laura, que deberia de ser de 2697,50 patacones"{
+        assert.equals(2697.50, laura.sueldoNeto())
+    }
+
 }
