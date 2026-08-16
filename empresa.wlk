@@ -22,7 +22,7 @@ class Empleado{
     const property sueldoBasico
 
     method edad(){
-        return 2026 - fechaNacimiento
+        return 2026 - fechaNacimiento.year()
     }
     method sueldoNeto(){
         return self.sueldoBruto() - self.retenciones()

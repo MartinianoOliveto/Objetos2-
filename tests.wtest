@@ -1,13 +1,16 @@
 import empresa.*
 const casado = new Casado()
 
+
 const martin = new EmpleadoTemporal(nombre = "Martin Gomez", direccion = "Calle Falsa 123",
-                    estadoCivil = casado, fechaNacimiento = 1980, sueldoBasico = 1000, 
+                    estadoCivil = casado, fechaNacimiento = edadMartin, sueldoBasico = 1000, 
                     fechaDesignacion = "", horasExtra =10)
+const edadMartin = new Date(day = 25, month = 7, year = 1980)
 
 const laura = new EmpleadoPermanente(nombre = "Laura Benitez", direccion = "Av.Mitre 450",
-                    estadoCivil = casado, fechaNacimiento = 1970, sueldoBasico = 3000, 
+                    estadoCivil = casado, fechaNacimiento = edadLaura, sueldoBasico = 3000, 
                     cantDeHijos = 2, antiguedad = 5)
+const edadLaura = new Date(day = 10, month = 9, year = 1970)
 
 const blanquiceleste = new Empresa(nombre ="Blanquiceleste S.A", cuit = "30-11223344-9", 
                 empleados = #{martin,laura})
