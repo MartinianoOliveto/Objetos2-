@@ -1,71 +1,97 @@
 import empresa.*
-const casado = new Casado()
+const blanquiceleste = new Empresa(nombre ="Blanquiceleste S.A", cuit = "30-11223344-9", 
+                empleados = #{martin,laura})
 
+describe "Testeando la empresa"{
+    test"Testeando total de sueldos netos, que deberia ser de 3767,50"{
+        assert.equals(3767.50, blanquiceleste.totalSueldosNetos())
+    }
+    test"Testeando total de sueldos brutos, que deberia ser de 5050 australes"{
+        assert.equals(5050, blanquiceleste.totalSueldosBrutos())
+    }
+    test"Testeando total de reteniones, que deberian ser 1282,50 australes"{
+        assert.equals(1282.50, blanquiceleste.totalRetenciones())
+    }
+}
+
+const blanquiceleste2 = new Empresa(nombre ="Blanquiceleste S.A", cuit = "30-11223344-9", 
+                empleados = #{martin,laura,carlos})
+
+describe "Testeando la nueva empresa"{
+    test"Testeando total de sueldos netos, que deberia ser de 5717,50"{
+        assert.equals(5717.50, blanquiceleste2.totalSueldosNetos())
+    }
+    test"Testeando total de sueldos brutos, que deberia ser de 7050 australes"{
+        assert.equals(7050, blanquiceleste2.totalSueldosBrutos())
+    }
+    test"Testeando total de retenciones, que deberian ser 1332,50 australes"{
+        assert.equals(1332.50, blanquiceleste2.totalRetenciones())
+    }
+}
 
 const martin = new EmpleadoTemporal(nombre = "Martin Gomez", direccion = "Calle Falsa 123",
                     estadoCivil = casado, fechaNacimiento = edadMartin, sueldoBasico = 1000, 
                     fechaDesignacion = "", horasExtra =10)
 const edadMartin = new Date(day = 25, month = 7, year = 1980)
-
-const laura = new EmpleadoPermanente(nombre = "Laura Benitez", direccion = "Av.Mitre 450",
-                    estadoCivil = casado, fechaNacimiento = edadLaura, sueldoBasico = 3000, 
-                    cantDeHijos = 2, antiguedad = 5)
-const edadLaura = new Date(day = 10, month = 9, year = 1970)
-
-const blanquiceleste = new Empresa(nombre ="Blanquiceleste S.A", cuit = "30-11223344-9", 
-                empleados = #{martin,laura})
-describe "Testeando la empresa"{
-    test"Testeando total de sueldos netos, que deberia ser de 3767,50"{
-        assert.equals(3767.50, blanquiceleste.totalSueldosNetos())
-    }
-    test"Testeando total de sueldos brutos, que deberia ser de 5050 patacones"{
-        assert.equals(5050, blanquiceleste.totalSueldosBrutos())
-    }
-    test"Testeando total de reteniones, que deberian ser 1282,50 patacones"{
-        assert.equals(1282.50, blanquiceleste.totalRetenciones())
-    }
-}
 describe "Testeando sueldo de empleado temporal"{
     test"Edad de Martin"{
         assert.equals(46, martin.edad())
     }
-    test"Sueldo bruto de Martin, que deberia ser 1400 patacones"{
+    test"Sueldo bruto de Martin, que deberia ser 1400 australes"{
         assert.equals(1400,martin.sueldoBruto())
     }
-    test"retenciones de obra social a Martin, que deberian ser 140 patacones"{
+    test"retenciones de obra social a Martin, que deberian ser 140 australes"{
         assert.equals(140,martin.obraSocial())
     }
-    test"retenciones de aportes a Martin, que deberian ser 190 patacones"{
+    test"retenciones de aportes a Martin, que deberian ser 190 australes"{
         assert.equals(190, martin.aportes())
     }
-    test"Retenciones a Martin, que deberian ser de 330 patacones"{
+    test"Retenciones a Martin, que deberian ser de 330 australes"{
         assert.equals(330, martin.retenciones())
     }
-    test"Sueldo neto de Martin, que deberia ser de 1070 patacones"{
+    test"Sueldo neto de Martin, que deberia ser de 1070 australes"{
         assert.equals(1070, martin.sueldoNeto())
     }
 }
+const laura = new EmpleadoPermanente(nombre = "Laura Benitez", direccion = "Av.Mitre 450",
+                    estadoCivil = casado, fechaNacimiento = edadLaura, sueldoBasico = 3000, 
+                    cantDeHijos = 2, antiguedad = 5)
+const edadLaura = new Date(day = 10, month = 9, year = 1970)
 describe"Testeando calculo de sueldo de empleado permanente"{
     test"Edad de Laura"{
         assert.equals(56, laura.edad())
     }
-    test"Salario familiar de Laura, que deberia ser de 650 patacones"{
+    test"Salario familiar de Laura, que deberia ser de 650 australes"{
         assert.equals(650, laura.salarioFamiliar())
     }
-    test"Salario bruto de Laura, que deberia ser de 3650 patacones"{
+    test"Salario bruto de Laura, que deberia ser de 3650 australes"{
         assert.equals(3650, laura.sueldoBruto())
     }
-    test"Retenciones por obra social a Laura, que deberian ser de 405 patacones"{
+    test"Retenciones por obra social a Laura, que deberian ser de 405 australes"{
         assert.equals(405, laura.obraSocial())
     }
-    test"Retenciones por aportes a Laura, que deberian ser de 547,50 patacones"{
+    test"Retenciones por aportes a Laura, que deberian ser de 547,50 australes"{
         assert.equals(547.50, laura.aportes())
     }
-    test"Retenciones a Laura, que deberian ser de 952,50 patacones"{
+    test"Retenciones a Laura, que deberian ser de 952,50 australes"{
         assert.equals(952.50, laura.retenciones())
     }
-    test "Salario neto de Laura, que deberia de ser de 2697,50 patacones"{
+    test "Salario neto de Laura, que deberia de ser de 2697,50 australes"{
         assert.equals(2697.50, laura.sueldoNeto())
     }
-
 }
+const carlos = new EmpleadoContratado(nombre = "Carlos Ruiz", direccion = "San Martin 820",
+                    estadoCivil = soltero, numeroContrato = "12345", medioDePago = "cheque",
+                    fechaNacimiento = edadCarlos, sueldoBasico = 2000)
+const edadCarlos = new Date(day = 17, month = 1, year = 2000)
+
+describe "Testeando calculo de sueldo de empleado contratado"{
+    test "Salario bruto de Carlos, que deberia ser 2000 australes"{
+        assert.equals(2000, carlos.sueldoBruto())
+    }
+    test "Salario neto de Carlos, que deberia ser 1950 australes"{
+        assert.equals(1950, carlos.sueldoNeto())
+    }
+}
+const casado = new Casado()
+const soltero = new Soltero()

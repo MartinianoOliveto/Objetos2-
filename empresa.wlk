@@ -29,9 +29,6 @@ class Empleado{
     }
     method retenciones()
     method sueldoBruto() 
-    method obraSocial()
-    method aportes()
-
 }
 
 class EmpleadoPermanente inherits Empleado{
@@ -44,10 +41,10 @@ class EmpleadoPermanente inherits Empleado{
     override method retenciones(){
         return self.obraSocial() + self.aportes()
     }
-    override method obraSocial(){
+    method obraSocial(){
         return self.sueldoBruto() * 0.1 + self.retencionPorHijos()
     }
-    override method aportes(){
+    method aportes(){
         return self.sueldoBruto() * 0.15
     }
     method salarioFamiliar(){
@@ -65,8 +62,6 @@ class EmpleadoPermanente inherits Empleado{
     method retencionPorHijos(){
         return 20 * cantDeHijos
     }
-
-
 }
 
 class EmpleadoTemporal inherits Empleado{
@@ -79,10 +74,10 @@ class EmpleadoTemporal inherits Empleado{
     override method retenciones(){
         return self.obraSocial() + self.aportes()
     }
-    override method obraSocial(){
+    method obraSocial(){
         return self.sueldoBruto() * 0.1 + self.retencionPorEdad() 
     }
-    override method aportes(){
+    method aportes(){
         return self.sueldoBruto() * 0.1 + self.retencionHorasExtras()
     }
     method totalHorasExtras(){
@@ -98,7 +93,18 @@ class EmpleadoTemporal inherits Empleado{
     method retencionHorasExtras(){
         return 5 * horasExtra 
     }
+}
 
+class EmpleadoContratado inherits Empleado{
+    const property numeroContrato 
+    const property medioDePago
+
+    override method sueldoBruto(){
+        return sueldoBasico
+    }
+    override method retenciones(){
+        return 50 
+    }
 }
 
 class EstadoCivil{
@@ -116,7 +122,7 @@ class Casado inherits EstadoCivil{
 }
 /*
 HACER TESTS -hecho 
-CHEQUEAR UML 
+CHEQUEAR UML -hecho 
 INVESTIGAR COMO HACER LA RELACION ENTRE REIBO DE SUELDO Y EMPRESA, Y COMO IMPLEMENTARLA EN WOLLOK 
-
+CAMBIAR estadocivil
 */
