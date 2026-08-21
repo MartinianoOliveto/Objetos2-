@@ -12,6 +12,11 @@ describe "Testeando la empresa"{
     test"Testeando total de reteniones, que deberian ser 1282,50 australes"{
         assert.equals(1282.50, blanquiceleste.totalRetenciones())
     }
+    test "Test de liquidacion de sueldos"{
+        blanquiceleste.liquidarSueldos()
+        assert.equals(1, martin.cantRecibos())
+        assert.equals(1, laura.cantRecibos())
+    }
 }
 
 const blanquiceleste2 = new Empresa(nombre ="Blanquiceleste S.A", cuit = "30-11223344-9", 

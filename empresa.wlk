@@ -45,6 +45,9 @@ class Empleado{
     method agregarRecibo(recibo){
         recibos.add(recibo)
     }
+    method cantRecibos(){
+        return recibos.size()
+    }
 }
 
 class EmpleadoPermanente inherits Empleado{
