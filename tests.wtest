@@ -30,9 +30,9 @@ describe "Testeando la nueva empresa"{
 }
 
 const martin = new EmpleadoTemporal(nombre = "Martin Gomez", direccion = "Calle Falsa 123",
-                    estadoCivil = casado, fechaNacimiento = edadMartin, sueldoBasico = 1000, 
+                    estadoCivil = casado, fechaNacimiento = fechaNacimientoMartin, sueldoBasico = 1000, 
                     fechaDesignacion = "", horasExtra =10)
-const edadMartin = new Date(day = 25, month = 7, year = 1980)
+const fechaNacimientoMartin = new Date(day = 25, month = 7, year = 1980)
 describe "Testeando sueldo de empleado temporal"{
     test"Edad de Martin"{
         assert.equals(46, martin.edad())
@@ -54,9 +54,9 @@ describe "Testeando sueldo de empleado temporal"{
     }
 }
 const laura = new EmpleadoPermanente(nombre = "Laura Benitez", direccion = "Av.Mitre 450",
-                    estadoCivil = casado, fechaNacimiento = edadLaura, sueldoBasico = 3000, 
+                    estadoCivil = casado, fechaNacimiento = fechaNacimientoLaura, sueldoBasico = 3000, 
                     cantDeHijos = 2, antiguedad = 5)
-const edadLaura = new Date(day = 10, month = 9, year = 1970)
+const fechaNacimientoLaura = new Date(day = 10, month = 9, year = 1970)
 describe"Testeando calculo de sueldo de empleado permanente"{
     test"Edad de Laura"{
         assert.equals(56, laura.edad())
@@ -82,8 +82,8 @@ describe"Testeando calculo de sueldo de empleado permanente"{
 }
 const carlos = new EmpleadoContratado(nombre = "Carlos Ruiz", direccion = "San Martin 820",
                     estadoCivil = soltero, numeroContrato = "12345", medioDePago = "cheque",
-                    fechaNacimiento = edadCarlos, sueldoBasico = 2000)
-const edadCarlos = new Date(day = 17, month = 1, year = 2000)
+                    fechaNacimiento = fechaNacimientoCarlos, sueldoBasico = 2000)
+const fechaNacimientoCarlos = new Date(day = 17, month = 1, year = 2000)
 
 describe "Testeando calculo de sueldo de empleado contratado"{
     test "Salario bruto de Carlos, que deberia ser 2000 australes"{

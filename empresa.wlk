@@ -12,6 +12,9 @@ class Empresa{
     method totalRetenciones(){
         return empleados.sum{e => e.retenciones()}
     }
+    method liquidarSueldos(){
+        empleados.forEach({e => e.liquidarSueldo()})
+    }
 }
 
 class Empleado{
@@ -20,6 +23,7 @@ class Empleado{
     const property estadoCivil 
     const property fechaNacimiento 
     const property sueldoBasico
+    const recibos = [] 
 
     method edad(){
         return 2026 - fechaNacimiento.year()
@@ -29,6 +33,18 @@ class Empleado{
     }
     method retenciones()
     method sueldoBruto() 
+
+    method liquidarSueldo(){
+        self.agregarRecibo(self.crearRecibo())
+    }
+    method crearRecibo(){
+        const recibo = new ReciboDeSueldo(nombreEmpleado = self.nombre(), direccion = self.direccion(), sueldoBasico = self.sueldoBasico(), 
+                sueldoBruto =self.sueldoBruto(), sueldoNeto = self.sueldoNeto(), retenciones = self.retenciones(), fechaEmision = "21/8/2026")
+        return recibo
+    }
+    method agregarRecibo(recibo){
+        recibos.add(recibo)
+    }
 }
 
 class EmpleadoPermanente inherits Empleado{
@@ -106,6 +122,33 @@ class EmpleadoContratado inherits Empleado{
         return 50 
     }
 }
+class ReciboDeSueldo{
+    const property nombreEmpleado
+    const property direccion 
+    const property fechaEmision 
+    const property sueldoBasico 
+    const property sueldoBruto
+    const property sueldoNeto
+    const property retenciones 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class EstadoCivil{
     method asignacion()
@@ -120,6 +163,11 @@ class Casado inherits EstadoCivil{
         return 100
     }
 }
+
+
+
+
+
 /*
 HACER TESTS -hecho 
 CHEQUEAR UML -hecho 
